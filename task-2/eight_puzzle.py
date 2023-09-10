@@ -41,7 +41,7 @@ def h1(s):
     board, _, _ = s
     res = 0
     # The for loop counts the number of elements that is different from
-    # the goal configuration.
+    #   the goal configuration.
     # We start from index 1 to 8 because the blank is excluded.
     for idx in range(1, 9):
         if goal[idx] != board[idx]:
@@ -50,5 +50,15 @@ def h1(s):
 
 def h3(s):
     # implement this function
+    goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
     board, _, _ = s
-    return 0
+    tilesCount = 0
+
+    for i, tile in enumerate(board):
+        if not tile: 
+            continue
+        goalIndex = goal.index(tile)
+        diff = abs(goalIndex - i)
+        tilesCount += (diff // 3) + (diff % 3)  # number of tiles out of their target (row + col)
+
+    return tilesCount
