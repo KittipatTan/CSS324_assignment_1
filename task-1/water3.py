@@ -13,7 +13,7 @@ def successors(s):
         remain = 5 - y
         if (remain > 0):
             if (x > remain):
-                yield ((x-remain, 5, z), remain) # full desc
+                yield ((x-remain, 5, z), remain) # full dest
             else:
                 yield ((0, y+x, z), x)           # empty source
         
